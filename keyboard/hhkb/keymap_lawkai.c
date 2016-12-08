@@ -51,7 +51,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 //         FN4, Z,   X,   C,   V,   B,   N,   M,   COMM, DOT,   FN2,   RSFT, FN1,
            LSFT,NO,  END, NO,  PGDN,NO,  PPLS,PMNS,  END,  PGDN,  DOWN,  RSFT, TRNS, \
 //              LALT,LGUI,          FN4,                FN2, RALT),
-                TRNS,TRNS,          TRNS,               TRNS,TRNS),
+                LALT,LGUI,          TRNS,               RGUI,TRNS),
 
 
     /* Layer 3: Mouse mode(IJKL)[Space]
@@ -77,7 +77,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 //         FN4, Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, FN2, RSFT,FN1,
            LSFT,NO,  WH_R,NO,  WH_D,NO,  NO,  NO,  NO,  NO,  NO,  RSFT,TRNS, \
 //              LALT,LGUI,          FN4,                FN2, RALT),
-                TRNS,TRNS,          TRNS,               TRNS,TRNS),
+                LALT,LGUI,          TRNS,               RGUI,TRNS),
 };
 
 
@@ -104,12 +104,14 @@ const action_t fn_actions[] PROGMEM = {
 #endif
     [0] = ACTION_DEFAULT_LAYER_SET(0),                // Default layer(not used)
     [1] = ACTION_LAYER_TAP_TOGGLE(1),                 // HHKB layer(toggle with 5 taps)
-    [2] = ACTION_LAYER_MOMENTARY(2),                  // Mousekey layer(IJKL)
+    [2] = ACTION_LAYER_TAP_TOGGLE(2),                  // Mousekey layer(IJKL)
     [3] = ACTION_MODS_TAP_KEY(MOD_RCTL, KC_ENT),      // RControl with tap Enter (stay)
     [4] = ACTION_MODS_ONESHOT(MOD_LSFT),              // Oneshot Shift (stay)
     [5] = ACTION_MACRO(ALT_TAB),                      // Application switching (stay)
     [6] = ACTION_MODS_ONESHOT(MOD_RSFT),              // Oneshot Shift (stay)
-    [7] = ACTION_MODS_TAP_KEY(KC_LCTL, KC_ESC),       // LControl with tap Esc
+    [7] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_ESC),       // LControl with tap Esc
+
+
 
 //  [x] = ACTION_LMOD_TAP_KEY(KC_LCTL, KC_BSPC),        // LControl with tap Backspace
 //  [x] = ACTION_LMOD_TAP_KEY(KC_LCTL, KC_ESC),         // LControl with tap Esc
