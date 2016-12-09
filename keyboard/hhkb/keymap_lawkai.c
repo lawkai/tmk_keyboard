@@ -27,7 +27,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
            TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC, \
            FN7, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN3, \
            FN4, Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH, FN6,FN1, \
-                LALT,LGUI,          SPC,                RGUI, FN2),
+                LALT,LGUI,          FN8,                RGUI, FN2),
 
     /* Layer 1: HHKB mode[HHKB Fn]
      * ,-----------------------------------------------------------.
@@ -49,9 +49,9 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 //         LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN3,
            LCTL,NO,  LEFT,DOWN,RGHT,NO,  PAST,PSLS,HOME,  PGUP,  LEFT,   RGHT,  FN3, \
 //         FN4, Z,   X,   C,   V,   B,   N,   M,   COMM, DOT,   FN2,   RSFT, FN1,
-           LSFT,NO,  END, NO,  PGDN,NO,  PPLS,PMNS,  END,  PGDN,  DOWN,  RSFT, TRNS, \
+           LSFT,NO,  END, NO,  PGDN,NO,  PPLS,PMNS,  END,  PGDN,  DOWN,  RSFT, FN1, \
 //              LALT,LGUI,          FN4,                FN2, RALT),
-                LALT,LGUI,          TRNS,               RGUI,TRNS),
+                LALT,LGUI,          TRNS,               RGUI,RALT),
 
 
     /* Layer 3: Mouse mode(IJKL)[Space]
@@ -69,15 +69,15 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      * Mc: Mouse Cursor / Mb: Mouse Button / Mw: Mouse Wheel
      */
     [2] = \
-    KEYMAP(PWR, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, INS, DEL, \
+    KEYMAP(ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, INS, DEL, \
 //         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC,
-           FN5, NO,  WH_L,MS_U,WH_U,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,  FN5, \
+           FN5, NO,  NO,  MS_U,NO,  NO,  NO,BTN1,BTN2,BTN3,  NO,  UP,  NO,  FN5, \
 //         LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN3,
-           LCTL,NO,  MS_L,MS_D,MS_R,NO,  NO,  BTN1,BTN2,BTN3,NO,   NO,  FN3, \
+           LCTL,NO,  MS_L,MS_D,MS_R,NO,  MS_L,MS_D,MS_U,MS_R,LEFT,RGHT,  FN3, \
 //         FN4, Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, FN2, RSFT,FN1,
-           LSFT,NO,  WH_R,NO,  WH_D,NO,  NO,  NO,  NO,  NO,  NO,  RSFT,TRNS, \
+           LSFT,NO,  NO,  NO,  NO,  NO,  WH_L, WH_D,WH_U,WH_R,DOWN,RSFT,RALT, \
 //              LALT,LGUI,          FN4,                FN2, RALT),
-                LALT,LGUI,          TRNS,               RGUI,TRNS),
+                LALT,LGUI,          TRNS,               RGUI,FN2),
 };
 
 
@@ -103,13 +103,14 @@ const action_t fn_actions[] __attribute__ ((section (".keymap.fn_actions"))) = {
 const action_t fn_actions[] PROGMEM = {
 #endif
     [0] = ACTION_DEFAULT_LAYER_SET(0),                // Default layer(not used)
-    [1] = ACTION_LAYER_TAP_TOGGLE(1),                 // HHKB layer(toggle with 5 taps)
-    [2] = ACTION_LAYER_TAP_TOGGLE(2),                  // Mousekey layer(IJKL)
+    [1] = ACTION_LAYER_MOMENTARY(1),                 // HHKB layer(toggle with 5 taps)
+    [2] = ACTION_LAYER_MOMENTARY(2),                  // Mousekey layer(IJKL)
     [3] = ACTION_MODS_TAP_KEY(MOD_RCTL, KC_ENT),      // RControl with tap Enter (stay)
     [4] = ACTION_MODS_ONESHOT(MOD_LSFT),              // Oneshot Shift (stay)
     [5] = ACTION_MACRO(ALT_TAB),                      // Application switching (stay)
     [6] = ACTION_MODS_ONESHOT(MOD_RSFT),              // Oneshot Shift (stay)
     [7] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_ESC),       // LControl with tap Esc
+    [8] = ACTION_LAYER_TAP_KEY(2, KC_SPC),            // Mousekey layer with Space
 
 
 
