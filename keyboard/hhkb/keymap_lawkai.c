@@ -27,7 +27,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
            TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC, \
            FN7, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN3, \
            FN4, Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH, FN6,FN1, \
-                LALT,LGUI,          FN8,                RGUI, FN2),
+                LALT,LGUI,          FN8,                RGUI, RALT),
 
     /* Layer 1: HHKB mode[HHKB Fn]
      * ,-----------------------------------------------------------.
@@ -54,7 +54,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
                 LALT,LGUI,          TRNS,               RGUI,RALT),
 
 
-    /* Layer 3: Mouse mode(IJKL)[Space]
+    /* Layer 2: Mouse mode(IJKL)[Space]
      * ,-----------------------------------------------------------.
      * |Esc| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Ins|Del|
      * |-----------------------------------------------------------|
@@ -75,9 +75,9 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 //         LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN3,
            LCTL,NO,  MS_L,MS_D,MS_R,NO,  MS_L,MS_D,MS_U,MS_R,LEFT,RGHT,  FN3, \
 //         FN4, Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, FN2, RSFT,FN1,
-           LSFT,NO,  NO,  NO,  NO,  NO,  WH_L, WH_D,WH_U,WH_R,DOWN,RSFT,RALT, \
+           LSFT,NO,  NO,  NO,  NO,  NO,  WH_L, WH_D,WH_U,WH_R,DOWN,RSFT,FN1, \
 //              LALT,LGUI,          FN4,                FN2, RALT),
-                LALT,LGUI,          TRNS,               RGUI,FN2),
+                LALT,LGUI,          TRNS,               RGUI,RALT),
 };
 
 
@@ -91,6 +91,7 @@ enum macro_id {
     HELLO,
     VOLUP,
     ALT_TAB,
+    ALT_ENTER,
 };
 
 
@@ -111,7 +112,7 @@ const action_t fn_actions[] PROGMEM = {
     [6] = ACTION_MODS_ONESHOT(MOD_RSFT),              // Oneshot Shift (stay)
     [7] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_ESC),       // LControl with tap Esc
     [8] = ACTION_LAYER_TAP_KEY(2, KC_SPC),            // Mousekey layer with Space
-
+    [9] = ACTION_MACRO(ALT_ENTER),
 
 
 //  [x] = ACTION_LMOD_TAP_KEY(KC_LCTL, KC_BSPC),        // LControl with tap Backspace
@@ -140,6 +141,10 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
             return (record->event.pressed ?
                     MACRO( D(LALT), D(TAB), END ) :
                     MACRO( U(TAB), END ));
+	case ALT_ENTER:
+	    return (record->event.pressed ?
+	 	    MACRO( D(RALT), D(ENTER), END ) :
+		    MACRO( U(ENTER), END ));
     }
     return MACRO_NONE;
 }
