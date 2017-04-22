@@ -25,7 +25,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
     [0] = \
     KEYMAP(ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSLS,GRV, \
            TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC, \
-           FN7, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN3, \
+           FN6, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN3, \
            FN4, Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH, RSFT,FN1, \
                 LGUI,LALT,          FN8,                RALT, RGUI),
 
@@ -47,7 +47,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 //         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC,
            CAPS,NO,  HOME,UP,  PGUP,NO,  NO,  NO,  PSCR,  SLCK,  PAUS,  UP,  NO,  FN5, \
 //         LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN3,
-           LCTL,NO,  LEFT,DOWN,RGHT,NO,  PAST,PSLS,HOME,  PGUP,  LEFT,   RGHT,  FN3, \
+           TRNS,NO,  LEFT,DOWN,RGHT,NO,  PAST,PSLS,HOME,  PGUP,  LEFT,   RGHT,  FN3, \
 //         FN4, Z,   X,   C,   V,   B,   N,   M,   COMM, DOT,   FN2,   RSFT, FN1,
            LSFT,NO,  END, NO,  PGDN,NO,  PPLS,PMNS,  END,  PGDN,  DOWN,  RSFT, FN1, \
 //              LALT,LGUI,          FN4,                FN2, RALT),
@@ -73,11 +73,18 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 //         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC,
            FN5, NO,  NO,  MS_U,NO,  NO,  NO,BTN1,BTN2,BTN3,  NO,  UP,  NO,  FN5, \
 //         LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN3,
-           LCTL,NO,  MS_L,MS_D,MS_R,NO,  MS_L,MS_D,MS_U,MS_R,LEFT,RGHT,  FN3, \
+           TRNS,NO,  MS_L,MS_D,MS_R,NO,  MS_L,MS_D,MS_U,MS_R,LEFT,RGHT, FN3, \
 //         FN4, Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, FN2, RSFT,FN1,
            LSFT,NO,  NO,  NO,  NO,  NO,  WH_L, WH_D,WH_U,WH_R,DOWN,RSFT,FN1, \
 //              LALT,LGUI,          FN4,                FN2, RALT),
                 LGUI,LALT,          TRNS,               RALT,RGUI),
+
+    [3] = \
+    KEYMAP(ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,   F8,  F9,  F10,  F11,  F12,  INS,DEL, \
+            TAB, Q,   W,   E,   R,   T,   Y,   U,    I,   O,    P, LBRC, RBRC, BSPC, \
+           TRNS, A,   S,   D,   F,   G,   H,   J,    K,   L, SCLN, QUOT,  ENT, \
+           LSFT, Z,   X,   C,   V,   B,   N,   M, COMM, DOT, SLSH, RSFT,  FN1, \
+              LGUI,LALT,           SPC,           RALT, RGUI),
 };
 
 
@@ -109,7 +116,7 @@ const action_t fn_actions[] PROGMEM = {
     [3] = ACTION_MODS_TAP_KEY(MOD_RCTL, KC_ENT),      // RControl with tap Enter (stay)
     [4] = ACTION_MODS_ONESHOT(MOD_LSFT),              // Oneshot Shift (stay)
     [5] = ACTION_MACRO(ALT_TAB),                      // Application switching (stay)
-    [6] = ACTION_MODS_ONESHOT(MOD_RSFT),              // Oneshot Shift (stay)
+    [6] = ACTION_LAYER_MODS(3, MOD_LCTL),              // Switch Layer to 3 + Ctrl
     [7] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_ESC),       // LControl with tap Esc
     [8] = ACTION_LAYER_TAP_KEY(2, KC_SPC),            // Mousekey layer with Space
     [9] = ACTION_MACRO(ALT_ENTER),
