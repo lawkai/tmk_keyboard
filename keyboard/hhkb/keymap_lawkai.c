@@ -27,7 +27,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
            TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC, \
            FN7, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN3, \
            FN4, Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH, RSFT,FN1, \
-                LALT,LGUI,          FN8,                RGUI, RALT),
+                LGUI,LALT,          FN8,                RALT, RGUI),
 
     /* Layer 1: HHKB mode[HHKB Fn]
      * ,-----------------------------------------------------------.
@@ -51,7 +51,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 //         FN4, Z,   X,   C,   V,   B,   N,   M,   COMM, DOT,   FN2,   RSFT, FN1,
            LSFT,NO,  END, NO,  PGDN,NO,  PPLS,PMNS,  END,  PGDN,  DOWN,  RSFT, FN1, \
 //              LALT,LGUI,          FN4,                FN2, RALT),
-                LALT,LGUI,          TRNS,               RGUI,RALT),
+                LGUI,LALT,          TRNS,               RALT,RGUI),
 
 
     /* Layer 2: Mouse mode(IJKL)[Space]
@@ -77,7 +77,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 //         FN4, Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, FN2, RSFT,FN1,
            LSFT,NO,  NO,  NO,  NO,  NO,  WH_L, WH_D,WH_U,WH_R,DOWN,RSFT,FN1, \
 //              LALT,LGUI,          FN4,                FN2, RALT),
-                LALT,LGUI,          TRNS,               RGUI,RALT),
+                LGUI,LALT,          TRNS,               RALT,RGUI),
 };
 
 
