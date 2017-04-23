@@ -25,9 +25,9 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
     [0] = \
     KEYMAP(ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSLS,GRV, \
            TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC, \
-           FN7, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN3, \
+           FN7, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN9, \
            FN4, Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH, RSFT,FN1, \
-                FN2,LALT,          FN8,                FN6, RGUI),
+                LGUI,LALT,          FN8,                FN6, RGUI),
 
     /* Layer 1: HHKB mode[HHKB Fn]
      * ,-----------------------------------------------------------.
@@ -47,7 +47,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 //         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC,
            CAPS,NO,  HOME,UP,  PGUP,NO,  NO,  NO,  PSCR,  SLCK,  PAUS,  UP,  NO,  FN5, \
 //         LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN3,
-           RCTL,NO,  LEFT,DOWN,RGHT,NO,  PAST,PSLS,HOME,  PGUP,  LEFT,   RGHT,  FN3, \
+           LCTL,NO,  LEFT,DOWN,RGHT,NO,  PAST,PSLS,HOME,  PGUP,  LEFT,   RGHT,  TRNS, \
 //         FN4, Z,   X,   C,   V,   B,   N,   M,   COMM, DOT,   FN2,   RSFT, FN1,
            LSFT,NO,  END, NO,  PGDN,NO,  PPLS,PMNS,  END,  PGDN,  DOWN,  RSFT, FN1, \
 //              LALT,LGUI,          FN4,                FN2, RALT),
@@ -73,7 +73,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 //         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC,
            FN5, NO,  NO,  MS_U,NO,  NO,  NO,BTN1,BTN2,BTN3,  NO,  UP,  NO,  FN5, \
 //         LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN3,
-           RCTL,NO,  MS_L,MS_D,MS_R,NO,  MS_L,MS_D,MS_U,MS_R,LEFT,RGHT, FN3, \
+           LCTL,NO,  MS_L,MS_D,MS_R,NO,  MS_L,MS_D,MS_U,MS_R,LEFT,RGHT, TRNS, \
 //         FN4, Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, FN2, RSFT,FN1,
            LSFT,NO,  NO,  NO,  NO,  NO,  WH_L, WH_D,WH_U,WH_R,DOWN,RSFT,NO, \
 //              LALT,LGUI,          FN4,                FN2, RALT),
@@ -82,14 +82,14 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
     [3] = \
     KEYMAP(ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,   F8,  F9,  F10,  F11,  F12,  INS,DEL, \
             TAB, Q,   W,   E,   R,   T,   Y,   U,    I,   O,    P, LBRC, RBRC, BSPC, \
-           RCTL, A,   S,   D,   F,   G,   H,   J,    K,   L, SCLN, QUOT,  FN3, \
+           LCTL, A,   S,   D,   F,   G,   H,   J,    K,   L, SCLN, QUOT,  FN3, \
            LSFT, Z,   X,   C,   V,   B,   N,   M, COMM, DOT, SLSH, RSFT,  NO, \
               TRNS,LALT,           SPC,           TRNS, RGUI),
 
     [4] = \
     KEYMAP(ESC, NO,  NO,  NO, END,  NO,  NO,  NO,  NO,   NO,HOME, NO, NO, INS, DEL, \
-            NO, NO,  NO,  NO,  NO,  NO,  NO,PGUP,  NO,   NO,  NO, NO, NO, BSPC, \
-           RCTL,NO,  NO,  NO,PGDN,  NO,LEFT,DOWN,  UP,RIGHT,  NO, NO, FN3, \
+            TAB, NO,  NO,  NO,  NO,  NO,  NO,PGUP,  NO,   NO,  NO, NO, NO, BSPC, \
+           LCTL,NO,  NO,  NO,PGDN,  NO,LEFT,DOWN,  UP,RIGHT,  NO, NO, TRNS, \
            LSFT,NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,   NO,  NO,RSFT,NO, \
                 TRNS,LALT,          NO,                LCTL,  NO),
 };
@@ -99,10 +99,11 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
 /* id for user defined functions */
 enum function_id {
     LSHIFT_LPAREN,
+    CTL_LAYER_ENTER,
 };
 
 enum macro_id {
-    HELLO,
+    CTL_ENTER,
     VOLUP,
     ALT_TAB,
     ALT_ENTER,
@@ -126,7 +127,7 @@ const action_t fn_actions[] PROGMEM = {
     [6] = ACTION_LAYER_MODS(3, MOD_LCTL),             // Switch Layer to 3 + Ctrl
     [7] = ACTION_MODS_TAP_KEY(MOD_RCTL, KC_ESC),      // LControl with tap Esc
     [8] = ACTION_LAYER_TAP_KEY(2, KC_SPC),            // Mousekey layer with Space
-    [9] = ACTION_MACRO(ALT_ENTER),
+    [9] = ACTION_FUNCTION_TAP(CTL_LAYER_ENTER),
 
 
 //  [x] = ACTION_LMOD_TAP_KEY(KC_LCTL, KC_BSPC),        // LControl with tap Backspace
@@ -143,10 +144,17 @@ const action_t fn_actions[] PROGMEM = {
 const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
     switch (id) {
-        case HELLO:
-            return (record->event.pressed ?
-                    MACRO( I(0), T(H), T(E), T(L), T(L), W(255), T(O), END ) :
-                    MACRO_NONE );
+        case CTL_ENTER:
+            if (record->event.pressed) {
+                // Toggle layer 3
+                layer_invert(3);
+                register_mods(MOD_BIT(KC_LCTL));
+                return MACRO_NONE;
+            } else {
+                layer_invert(3);
+                unregister_mods(MOD_BIT(KC_LCTL));
+                return MACRO( T(ENTER), END );
+            }
         case VOLUP:
             return (record->event.pressed ?
                     MACRO( D(VOLU), U(VOLU), END ) :
@@ -200,6 +208,23 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
                     record->tap.count = 0;  // ad hoc: cancel tap
                 } else {
                     unregister_mods(MOD_BIT(KC_LSHIFT));
+                }
+            }
+            break;
+        case CTL_LAYER_ENTER:
+            if (record->event.pressed) {
+                 if (record->tap.count == 0) {
+                    layer_invert(3);
+                    register_mods(MOD_BIT(KC_RCTL));
+                 } else {
+                    register_code(KC_ENTER); 
+                 }
+            } else {
+                if (record->tap.count == 0) {
+                    layer_invert(3);
+                    unregister_mods(MOD_BIT(KC_RCTL));
+                } else {
+                    unregister_code(KC_ENTER);
                 }
             }
             break;
