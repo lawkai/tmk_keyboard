@@ -23,7 +23,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      *       `-------------------------------------------'
      */
     [0] = \
-    KEYMAP(ESC, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSLS,GRV, \
+    KEYMAP(FN5, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSLS,GRV, \
            TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC, \
            FN7, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN9, \
            FN4, Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH, RSFT,FN1, \
@@ -123,9 +123,9 @@ const action_t fn_actions[] PROGMEM = {
     [2] = ACTION_LAYER_TOGGLE(4),                     // Navigation Layer (IJKL)
     [3] = ACTION_LAYER_MODS(3, MOD_LALT),             // LALT with layer 3
     [4] = ACTION_MODS_ONESHOT(MOD_LSFT),              // Oneshot Shift (stay)
-    [5] = ACTION_MACRO(ALT_TAB),                      // Application switching (stay)
+    [5] = ACTION_MODS_TAP_KEY(MOD_RGUI, KC_ESC),      // RGUI + ESC
     [6] = ACTION_LAYER_MODS(3, MOD_LCTL),             // Switch Layer to 3 + Ctrl
-    [7] = ACTION_MODS_TAP_KEY(MOD_RCTL, KC_ESC),      // LControl with tap Esc
+    [7] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_ESC),      // LControl with tap Esc
     [8] = ACTION_LAYER_TAP_KEY(2, KC_SPC),            // Mousekey layer with Space
     [9] = ACTION_FUNCTION_TAP(CTL_LAYER_ENTER),
 
