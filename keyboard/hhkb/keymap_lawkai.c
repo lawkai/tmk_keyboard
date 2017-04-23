@@ -27,7 +27,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
            TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC, \
            FN7, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN9, \
            FN4, Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH, RSFT,FN1, \
-                LGUI,LALT,          FN8,                RALT, RGUI),
+                LGUI,FN3,          FN8,                RALT, FN4),
 
     /* Layer 1: HHKB mode[HHKB Fn]
      * ,-----------------------------------------------------------.
@@ -87,7 +87,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
               TRNS,TRNS,           SPC,           TRNS, TRNS),
 
     [4] = \
-    KEYMAP(ESC, NO,  NO,  NO, END,  NO,  NO,  NO,  NO,   NO,HOME, NO, NO, INS, DEL, \
+    KEYMAP(FN4, NO,  NO,  NO, END,  NO,  NO,  NO,  NO,   NO,HOME, NO, NO, INS, DEL, \
             TAB, NO,  NO,  NO,  NO,  NO,  NO,PGUP,  NO,   NO,  NO, NO, NO, BSPC, \
            LCTL,NO,  NO,  NO,PGDN,  NO,LEFT,DOWN,  UP,RIGHT,  NO, NO, TRNS, \
            LSFT,NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,   NO,  NO,RSFT,NO, \
@@ -121,7 +121,7 @@ const action_t fn_actions[] PROGMEM = {
     [0] = ACTION_DEFAULT_LAYER_SET(0),                // Default layer(not used)
     [1] = ACTION_LAYER_MOMENTARY(1),                  // HHKB layer(toggle with 5 taps)
     [2] = ACTION_LAYER_TOGGLE(4),                     // Navigation Layer (IJKL)
-    [3] = ACTION_MODS_TAP_KEY(MOD_RALT, KC_ENT),      // RALT with tap Enter (stay)
+    [3] = ACTION_LAYER_MODS(3, MOD_LALT),             // LALT with layer 3
     [4] = ACTION_MODS_ONESHOT(MOD_LSFT),              // Oneshot Shift (stay)
     [5] = ACTION_MACRO(ALT_TAB),                      // Application switching (stay)
     [6] = ACTION_LAYER_MODS(3, MOD_LCTL),             // Switch Layer to 3 + Ctrl
