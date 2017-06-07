@@ -27,7 +27,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
            TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC, \
            FN7, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN9, \
            FN4, Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH, RSFT,FN1, \
-                FN10,FN3,          FN8,                RALT, FN11),
+                FN10,FN3,          SPC,                RALT, FN11),
 
     /* Layer 1: HHKB mode[HHKB Fn]
      * ,-----------------------------------------------------------.
