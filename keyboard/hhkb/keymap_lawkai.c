@@ -23,11 +23,18 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      *       `-------------------------------------------'
      */
     [0] = \
-    KEYMAP(FN5, 1,   2,   3,   4,   5,   6,   7,   8,   9,   0,   MINS,EQL, BSLS,GRV, \
-           TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC, \
-           FN7, A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN9, \
-           FN4, Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, SLSH, RSFT,FN1, \
-                FN3,FN10,          SPC,                FN11, RALT),
+    KEYMAP( ESC,    1,    2,    3,    4,    5,    6,    7,    8,    9,    0, MINS,  EQL, BSLS,  GRV, \
+            FN7,    Q,    W,    E,    R,    T,    Y,    U,    I,    O,    P, LBRC, RBRC, BSPC, \
+            FN2,    A,    S,    D,    F,    G,    H,    J,    K,    L, SCLN, QUOT,  FN5, \
+           LSFT,    Z,    X,    C,    V,    B,    N,    M, COMM,  DOT, SLSH, RSFT,  FN4, \
+                 LALT, LGUI,              FN3,             RGUI, RALT),
+
+    [1] = \
+    KEYMAP(  FN6,   F1,   F2,   F3,   F4,   F5,   F6,   F7,   F8,   F9,  F10,  F11,  F12,  INS,  DEL, \
+            TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
+            TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, LEFT, DOWN,   UP, RGHT, TRNS, GRV, TRNS, \
+            TRNS, HOME,  END, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, PGUP, PGDN, TRNS, TRNS, \
+                  TRNS, TRNS,             TRNS,             TRNS, TRNS),
 
     /* Layer 1: HHKB mode[HHKB Fn]
      * ,-----------------------------------------------------------.
@@ -42,52 +49,13 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      *       |Alt|Gui  |         Space         |Gui  |Alt|
      *       ---------'
      */
-    [1] = \
-    KEYMAP(PWR, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, INS, DEL, \
-           CAPS,NO,  HOME,UP,  PGUP,NO,  NO,  NO,  PSCR,  SLCK,  PAUS,  UP,  NO,  BSPC, \
-           LCTL,NO,  LEFT,DOWN,RGHT,NO,  PAST,PSLS,HOME,  PGUP,  LEFT,   RGHT,  TRNS, \
-           LSFT,NO,  END, NO,  PGDN,NO,  PPLS,PMNS,  END,  PGDN,  DOWN,  RSFT, FN1, \
-                TRNS,TRNS,          TRNS,               TRNS,TRNS),
-
-
-    /* Layer 2: Mouse mode(IJKL)[Space]
-     * ,-----------------------------------------------------------.
-     * |Esc| F1| F2| F3| F4| F5| F6| F7| F8| F9|F10|F11|F12|Ins|Del|
-     * |-----------------------------------------------------------|
-     * |Tab  |   |   |   |   |   |MwL|MwD|McU|MwU|MwR|Wbk|Wfr|Alt-T|
-     * |-----------------------------------------------------------|
-     * |Contro|   |   |   |   |   |Mb2|McL|McD|McR|Mb1|   |Return  |
-     * |-----------------------------------------------------------|
-     * |Shift   |   |   |   |   |Mb3|Mb2|Mb1|Mb4|Mb5|   |Shift |   |
-     * `-----------------------------------------------------------'
-     *      |Alt |Gui  |          Mb1          |Fn   |Fn |
-     *      `--------------------------------------------'
-     * Mc: Mouse Cursor / Mb: Mouse Button / Mw: Mouse Wheel
-     */
     [2] = \
-    KEYMAP(ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,  F8,  F9,  F10, F11, F12, INS, DEL, \
-//         TAB, Q,   W,   E,   R,   T,   Y,   U,   I,   O,   P,   LBRC,RBRC,BSPC,
-           FN5, NO,  NO,  MS_U,NO,  NO,  NO,BTN1,BTN2,BTN3,  NO,  UP,  NO,  FN5, \
-//         LCTL,A,   S,   D,   F,   G,   H,   J,   K,   L,   SCLN, QUOT,FN3,
-           LCTL,NO,  MS_L,MS_D,MS_R,NO,  MS_L,MS_D,MS_U,MS_R,LEFT,RGHT, TRNS, \
-//         FN4, Z,   X,   C,   V,   B,   N,   M,   COMM,DOT, FN2, RSFT,FN1,
-           LSFT,NO,  NO,  NO,  NO,  NO,  WH_L, WH_D,WH_U,WH_R,DOWN,RSFT,NO, \
-//              LALT,LGUI,          FN4,                FN2, RALT),
-                TRNS,TRNS,          TRNS,               TRNS,TRNS),
+    KEYMAP( PWR,   F1,   F2,   F3,   F4,   F5,   F6,   F7,   F8,   F9,  F10,  F11,  F12,  INS,  DEL, \
+             NO,   NO,   NO,   NO,   NO,   NO,   NO,   NO, PSCR, SLCK, PAUS,   UP,   NO, BSPC, \
+           TRNS, VOLD, VOLU, MUTE,  FN4,   NO, PAST, PSLS, HOME, PGUP, LEFT, RGHT, TRNS, \
+           TRNS,   NO,  END,   NO,   NO,   NO, PPLS, PMNS,  END, PGDN, DOWN, TRNS, TRNS, \
+                 TRNS, TRNS,             TRNS,             TRNS, TRNS),
 
-    [3] = \
-    KEYMAP(ESC, F1,  F2,  F3,  F4,  F5,  F6,  F7,   F8,  F9,  F10,  F11,  F12,  INS,DEL, \
-            TAB, Q,   W,   E,   R,   T,   Y,   U,    I,   O,    P, LBRC, RBRC, BSPC, \
-           LCTL, A,   S,   D,   F,   G,   H,   J,    K,   L, SCLN, QUOT,  TRNS, \
-           LSFT, Z,   X,   C,   V,   B,   N,   M, COMM, DOT, SLSH, RSFT,  NO, \
-              TRNS,TRNS,           SPC,           TRNS, TRNS),
-
-    [4] = \
-    KEYMAP(FN4, NO,  NO,  NO, END,  NO,  NO,  NO,  NO,   NO,HOME, NO, NO, INS, DEL, \
-            TAB, NO,  NO,  NO,  NO,  NO,  NO,PGUP,  NO,   NO,  NO, NO, NO, BSPC, \
-           LCTL,NO,  NO,  NO,PGDN,  NO,LEFT,DOWN,  UP,RIGHT,  NO, NO, TRNS, \
-           LSFT,NO,  NO,  NO,  NO,  NO,  NO,  NO,  NO,   NO,  NO,RSFT,NO, \
-                TRNS,TRNS,          NO,                TRNS,  TRNS),
 };
 
 
@@ -98,16 +66,15 @@ enum function_id {
     RSHIFT_RPAREN,
     LGUI_LCURLY,
     RGUI_RCURLY,
-    CTL_LAYER_ENTER,
+    MEH_COLON,
+    MEH_TAB,
 };
 
 enum macro_id {
     CTL_ENTER,
-    VOLUP,
-    ALT_TAB,
-    ALT_ENTER,
+    CLIP_BOARD,
+    TILDE_KEY,
 };
-
 
 /*
  * Fn action definition
@@ -117,19 +84,15 @@ const action_t fn_actions[] __attribute__ ((section (".keymap.fn_actions"))) = {
 #else
 const action_t fn_actions[] PROGMEM = {
 #endif
-    [0] = ACTION_DEFAULT_LAYER_SET(0),                // Default layer(not used)
-    [1] = ACTION_LAYER_MOMENTARY(1),                  // HHKB layer(toggle with 5 taps)
-    [2] = ACTION_LAYER_TOGGLE(4),                     // Navigation Layer (IJKL)
-    [3] = ACTION_LAYER_MODS(3, MOD_LALT),             // LALT with layer 3
-    [4] = ACTION_FUNCTION_TAP(LSHIFT_LPAREN),         // single left shift = ( 
-    [5] = ACTION_MODS_TAP_KEY(MOD_RGUI, KC_ESC),      // RGUI + ESC
-    [6] = ACTION_FUNCTION_TAP(RSHIFT_RPAREN),         // single right shift = )
-    [7] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_ESC),      // LControl with tap Esc
-    [8] = ACTION_LAYER_TAP_KEY(2, KC_SPC),            // Mousekey layer with Space
-    [9] = ACTION_FUNCTION_TAP(CTL_LAYER_ENTER),
-    [10] = ACTION_FUNCTION_TAP(LGUI_LCURLY),          // single left GUI = { 
-    [11] = ACTION_FUNCTION_TAP(RGUI_RCURLY),          // single right GUI = } 
+    [0] = ACTION_DEFAULT_LAYER_SET(0),              
+    [1] = ACTION_LAYER_MOMENTARY(2),                 
 
+    [2] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_ESC),      
+    [3] = ACTION_LAYER_TAP_KEY(1, KC_SPACE),
+    [4] = ACTION_FUNCTION_TAP(MEH_COLON),
+    [5] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_ENT),      
+    [6] = ACTION_MACRO(TILDE_KEY),
+    [7] = ACTION_FUNCTION_TAP(MEH_TAB),
 //  [x] = ACTION_LMOD_TAP_KEY(KC_LCTL, KC_BSPC),        // LControl with tap Backspace
 //  [x] = ACTION_LMOD_TAP_KEY(KC_LCTL, KC_ESC),         // LControl with tap Esc
 //  [x] = ACTION_FUNCTION_TAP(LSHIFT_LPAREN),           // Function: LShift with tap '('
@@ -147,26 +110,18 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
         case CTL_ENTER:
             if (record->event.pressed) {
                 // Toggle layer 3
-                layer_invert(3);
+                layer_invert(1);
                 register_mods(MOD_BIT(KC_LCTL));
                 return MACRO_NONE;
             } else {
-                layer_invert(3);
+                layer_invert(1);
                 unregister_mods(MOD_BIT(KC_LCTL));
                 return MACRO( T(ENTER), END );
             }
-        case VOLUP:
+        case TILDE_KEY:
             return (record->event.pressed ?
-                    MACRO( D(VOLU), U(VOLU), END ) :
-                    MACRO_NONE );
-        case ALT_TAB:
-            return (record->event.pressed ?
-                    MACRO( D(LALT), D(TAB), END ) :
-                    MACRO( U(TAB), END ));
-	case ALT_ENTER:
-	    return (record->event.pressed ?
-	 	    MACRO( D(RALT), D(ENTER), END ) :
-		    MACRO( U(ENTER), END ));
+                    MACRO( D(LSFT), D(SPACE), U(SPACE), D(GRV), U(GRV), U(LSFT), END ) :
+                    MACRO_NONE);
     }
     return MACRO_NONE;
 }
@@ -178,12 +133,76 @@ const macro_t *action_get_macro(keyrecord_t *record, uint8_t id, uint8_t opt)
  */
 void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
 {
-    if (record->event.pressed) dprint("P"); else dprint("R");
-    dprintf("%d", record->tap.count);
-    if (record->tap.interrupted) dprint("i");
-    dprint("\n");
-
     switch (id) {
+        case MEH_TAB:
+            if (record->event.pressed) {
+                if (record->tap.count > 0) {
+                    if (record->tap.interrupted) {
+                        dprint("tap interrupted\n");
+                        // ad hoc: set 0 to cancel tap
+                        record->tap.count = 0;
+                        add_weak_mods(MOD_BIT(KC_LALT));
+                        add_weak_mods(MOD_BIT(KC_LCTL));                                                                        
+                        add_weak_mods(MOD_BIT(KC_LSHIFT));
+                        send_keyboard_report();
+                    } else {
+                        send_keyboard_report();
+                        register_code(KC_TAB);
+                    }
+                  } else {
+                        add_weak_mods(MOD_BIT(KC_LALT));
+                        add_weak_mods(MOD_BIT(KC_LCTL));                                                                        
+                        add_weak_mods(MOD_BIT(KC_LSHIFT));
+                        send_keyboard_report();
+                }
+            } else {
+                if (record->tap.count > 0) {
+                    unregister_code(KC_TAB);
+                    send_keyboard_report();
+                } else {
+                    del_weak_mods(MOD_BIT(KC_LALT));
+                    del_weak_mods(MOD_BIT(KC_LCTL));                                                                        
+                    del_weak_mods(MOD_BIT(KC_LSHIFT));
+                    send_keyboard_report();
+                }
+            }
+            break;
+        case MEH_COLON:
+            if (record->event.pressed) {
+                if (record->tap.count > 0) {
+                    if (record->tap.interrupted) {
+                        dprint("tap interrupted\n");
+                        // ad hoc: set 0 to cancel tap
+                        record->tap.count = 0;
+                        add_weak_mods(MOD_BIT(KC_LALT));
+                        add_weak_mods(MOD_BIT(KC_LCTL));                                                                        
+                        add_weak_mods(MOD_BIT(KC_LSHIFT));
+                        send_keyboard_report();
+                    } else {
+                        dprint("MODS_TAP: Tap: register_code\n");
+                        add_weak_mods(MOD_BIT(KC_LSHIFT));
+                        send_keyboard_report();
+                        register_code(KC_SCOLON);
+                    }
+                  } else {
+                        add_weak_mods(MOD_BIT(KC_LALT));
+                        add_weak_mods(MOD_BIT(KC_LCTL));                                                                        
+                        add_weak_mods(MOD_BIT(KC_LSHIFT));
+                        send_keyboard_report();
+                }
+            } else {
+                if (record->tap.count > 0) {
+                    unregister_code(KC_SCOLON);
+                    del_weak_mods(MOD_BIT(KC_LSHIFT));
+                    send_keyboard_report();
+                } else {
+                    del_weak_mods(MOD_BIT(KC_LALT));
+                    del_weak_mods(MOD_BIT(KC_LCTL));                                                                        
+                    del_weak_mods(MOD_BIT(KC_LSHIFT));
+                    send_keyboard_report();
+                }
+            }
+            break;
         case LSHIFT_LPAREN:
             // Shift parentheses example: LShft + tap '('
             // http://stevelosh.com/blog/2012/10/a-modern-space-cadet/#shift-parentheses
@@ -283,22 +302,5 @@ void action_function(keyrecord_t *record, uint8_t id, uint8_t opt)
                 }
             }
             break;        
-        case CTL_LAYER_ENTER:
-            if (record->event.pressed) {
-                 if (record->tap.count == 0) {
-                    layer_invert(3);
-                    register_mods(MOD_BIT(KC_RCTL));
-                 } else {
-                    register_code(KC_ENTER); 
-                 }
-            } else {
-                if (record->tap.count == 0) {
-                    layer_invert(3);
-                    unregister_mods(MOD_BIT(KC_RCTL));
-                } else {
-                    unregister_code(KC_ENTER);
-                }
-            }
-            break;
     }
 }
