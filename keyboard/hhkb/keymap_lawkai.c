@@ -27,7 +27,7 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
             FN7,    Q,    W,    E,    R,    T,    Y,    U,    I,    O,    P, LBRC, RBRC, BSPC, \
             FN2,    A,    S,    D,    F,    G,    H,    J,    K,    L, SCLN, QUOT,  FN5, \
            LSFT,    Z,    X,    C,    V,    B,    N,    M, COMM,  DOT, SLSH, RSFT,  FN4, \
-                 LALT, LGUI,              FN3,             RGUI, RALT),
+                 LALT, LGUI,              FN3,             RALT, RGUI),
 
     [1] = \
     KEYMAP(  FN6,   F1,   F2,   F3,   F4,   F5,   F6,   F7,   F8,   F9,  F10,  F11,  F12,  INS,  DEL, \
