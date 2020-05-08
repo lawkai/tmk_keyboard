@@ -23,18 +23,12 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      *       `-------------------------------------------'
      */
     [0] = \
-    KEYMAP( ESC,    1,    2,    3,    4,    5,    6,    7,    8,    9,    0, MINS,  EQL, BSLS,  GRV, \
-            FN7,    Q,    W,    E,    R,    T,    Y,    U,    I,    O,    P, LBRC, RBRC, BSPC, \
+    KEYMAP(ESC,    1,    2,    3,    4,    5,    6,    7,    8,    9,    0, MINS,  EQL, BSLS,  GRV, \
+            TAB,    Q,    W,    E,    R,    T,    Y,    U,    I,    O,    P, LBRC, RBRC, BSPC, \
             FN2,    A,    S,    D,    F,    G,    H,    J,    K,    L, SCLN, QUOT,  FN5, \
-           LSFT,    Z,    X,    C,    V,    B,    N,    M, COMM,  DOT, SLSH, RSFT,  FN4, \
-                 LALT, LGUI,              FN3,             RALT, RGUI),
+           LSFT,    Z,    X,    C,    V,    B,    N,    M, COMM,  DOT, SLSH, RSFT,  FN1, \
+                  FN4, LCTL,              SPC,             RALT, FN3),
 
-    [1] = \
-    KEYMAP(  FN6,   F1,   F2,   F3,   F4,   F5,   F6,   F7,   F8,   F9,  F10,  F11,  F12,  INS,  DEL, \
-            TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, \
-            TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, LEFT, DOWN,   UP, RGHT, TRNS, GRV, TRNS, \
-            TRNS, HOME,  END, TRNS, TRNS, TRNS, TRNS, TRNS, TRNS, PGUP, PGDN, TRNS, TRNS, \
-                  TRNS, TRNS,             TRNS,             TRNS, TRNS),
 
     /* Layer 1: HHKB mode[HHKB Fn]
      * ,-----------------------------------------------------------.
@@ -49,10 +43,10 @@ const uint8_t keymaps[][MATRIX_ROWS][MATRIX_COLS] PROGMEM = {
      *       |Alt|Gui  |         Space         |Gui  |Alt|
      *       ---------'
      */
-    [2] = \
-    KEYMAP( PWR,   F1,   F2,   F3,   F4,   F5,   F6,   F7,   F8,   F9,  F10,  F11,  F12,  INS,  DEL, \
-             NO,   NO,   NO,   NO,   NO,   NO,   NO,   NO, PSCR, SLCK, PAUS,   UP,   NO, BSPC, \
-           TRNS, VOLD, VOLU, MUTE,  FN4,   NO, PAST, PSLS, HOME, PGUP, LEFT, RGHT, TRNS, \
+    [1] = \
+    KEYMAP( GRV,   F1,   F2,   F3,   F4,   F5,   F6,   F7,   F8,   F9,  F10,  F11,  F12,  INS,  DEL, \
+             NO,   NO,   NO,   UP,   NO,   NO,   NO,   NO, PSCR, SLCK, PAUS,   UP,   NO, BSPC, \
+           TRNS,   NO, LEFT, DOWN, RGHT,   NO, PAST, PSLS, HOME, PGUP, LEFT, RGHT, TRNS, \
            TRNS,   NO,  END,   NO,   NO,   NO, PPLS, PMNS,  END, PGDN, DOWN, TRNS, TRNS, \
                  TRNS, TRNS,             TRNS,             TRNS, TRNS),
 
@@ -85,11 +79,10 @@ const action_t fn_actions[] __attribute__ ((section (".keymap.fn_actions"))) = {
 const action_t fn_actions[] PROGMEM = {
 #endif
     [0] = ACTION_DEFAULT_LAYER_SET(0),              
-    [1] = ACTION_LAYER_MOMENTARY(2),                 
-
-    [2] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_ESC),      
-    [3] = ACTION_LAYER_TAP_KEY(1, KC_SPACE),
-    [4] = ACTION_FUNCTION_TAP(MEH_COLON),
+    [1] = ACTION_LAYER_MOMENTARY(1),                 
+    [2] = ACTION_MODS_TAP_KEY(MOD_LGUI, KC_ESC),      
+    [3] = ACTION_MODS(MOD_LALT | MOD_LCTL | MOD_LSFT),
+    [4] = ACTION_MODS(MOD_LGUI | MOD_LALT | MOD_LCTL | MOD_LSFT),
     [5] = ACTION_MODS_TAP_KEY(MOD_LCTL, KC_ENT),      
     [6] = ACTION_MACRO(TILDE_KEY),
     [7] = ACTION_FUNCTION_TAP(MEH_TAB),
